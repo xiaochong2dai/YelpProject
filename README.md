@@ -16,8 +16,8 @@ Write Java MR program/Use Hive/Pig which work as ETL to process Yelp business da
 5. test it in hadoop cluster
 
 
-Data format: 
-
+# Data format: 
+```JSON
 Business
 
 {
@@ -77,5 +77,6 @@ If there are no checkins for a business, the entire record will be omitted.
         '23-6': (number of checkins from 23:00 to 00:00 on all Saturdays)
   } # if there was no checkin for an hour-day block it will not be in the dict
 }
+```
 
 For more detailed data, please see data in YelpDataSet folder.
