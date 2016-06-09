@@ -15,7 +15,8 @@
 10. hadoop fs -cat /user/cloudera/YelpProject/output/* > business.txt      
 
 
-For testing purpose, I run all the commands together to save time
 
+
+For testing purpose, I run all the commands together to save time
 mvn clean; mvn package; hadoop jar target/YelpProject-0.0.1-SNAPSHOT.jar MapReduce.Demo /user/cloudera/YelpProject/input/1 /user/cloudera/YelpProject/output; hadoop fs -cat /user/cloudera/YelpProject/output/* > business.txt
  
