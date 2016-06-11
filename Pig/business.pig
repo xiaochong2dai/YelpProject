@@ -13,8 +13,7 @@ REGISTER '/home/guan01/json-simple-1.1.1.jar';
 
 json_business_row_jsonLoader = LOAD '/user/guan01/project/yelp/businessExternal/yelp_training_set_business.json' USING com.twitter.elephantbird.pig.load.JsonLoader('-nestedLoad') AS (json:map []);
 
-
-json_business_row = FOREACH json_business_row_jsonLoader GENERATE (chararray)json#'business_id' As business_id, (chararray)REPLACE(json#'full_address', '\\n', ', ') As full_address, (boolean)json#'open' As open, TOMAP('categories',json#'categories') As categories, (chararray)json#'city' As city, (int)json#'review_count' As review_count, (chararray)json#'name' As name, (double)json#'longitude' As longitude, (chararray)json#'state' As state, (double)json#'stars' As stars, (double)json#'latitude' As latitude;
+json_business_row = FOREACH json_business_row_jsonLoader GENERATE (chararray)json#'business_id' As business_id, (chararray)REPLACE(json#'full_address', '\\n', ', ') As full_address, (boolean)json#'open' As open, json#'categories' As categories, (chararray)json#'city' As city, (int)json#'review_count' As review_count, (chararray)json#'name' As name, (double)json#'longitude' As longitude, (chararray)json#'state' As state, (double)json#'stars' As stars, (double)json#'latitude' As latitude;
 
 STORE json_business_row INTO 'hdfs:///user/guan01/project/yelp/pigOutput/json_business_table' USING PigStorage('\u0001');
 
